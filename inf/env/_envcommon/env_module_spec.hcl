@@ -5,10 +5,13 @@ locals {
   aws_region = local.region_vars.locals.provider_region
   project  = local.project_vars.locals.project
   module  = "${basename(get_terragrunt_dir())}"
+
+  base_source_ref = run_cmd("git", "rev-parse", "--abbrev-ref", "HEAD")
+  base_source_url = "git::git@github.com:ElDiabloRojo/repo-repo.git//inf/modules/logical/${local.module}?ref=${local.base_source_ref}"
 }
 
 terraform {
-  source = "${dirname(find_in_parent_folders())}/../modules/logical//${local.module}/"
+  source = "${local.base_source_url}"
 
   extra_arguments "common_var" {
     commands  = get_terraform_commands_that_need_vars()

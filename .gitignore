@@ -1,5 +1,5 @@
 # IDE
-**/.idea/*
+.idea
 
 # Local .terraform directories
 **/.terraform/*
@@ -32,4 +32,4 @@ override.tf.json
 # example: *tfplan*
 
 # Terragrunt
-**/.terragrunt-cache/*
+.terragrunt-cache

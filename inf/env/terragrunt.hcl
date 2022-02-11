@@ -18,7 +18,7 @@ remote_state {
     if_exists = "overwrite"
   }
   config = {
-    bucket         = "${local.project}-terraform-state"
+    bucket         = "cg-${local.project}-terraform-state"
     key            = "${path_relative_to_include()}.tfstate"
     region         = "${local.aws_region}"
     encrypt        = true
